@@ -1,12 +1,14 @@
 const express = require('express') ; 
 const app = express() ; 
 const bodyParser = require('body-parser') ; 
-
+const events = require('events') ; 
+const PORT = 80 ; 
 var user = [{
     name : 'Quốc Hùng' ,
     classs : '11 Tin' ,
     mathScore : 0 ,
-    litScore : 10
+    litScore : 10,
+    pos : 1
 }]  ; 
 
 app.set('views' , './views') ;
@@ -20,6 +22,9 @@ app.get('/',function(req,res){
 });
 app.get('/reg',function(req,res){
     res.render('reg.pug') ; 
+});
+app.get('/regSuccess',function(req,res){
+    res.render('regSuccess')
 });
 app.post('/postReg',function(req,res){
     let name = req.body.name ; 
@@ -37,7 +42,7 @@ app.post('/postReg',function(req,res){
     }
     //console.log(temp) ; 
     user.push(temp) ; 
-    res.redirect('/') ; 
+    res.redirect('/regSuccess') ; 
     
 });
 app.get('/edit',function(req,res){
@@ -75,9 +80,10 @@ app.post('/postEdit/:id',function(req,res){
     }
     //console.log(temp) ; 
     user[id] = temp ; 
+    
     res.redirect('/edit') ; 
     
 });
-app.listen('8080',function(){
-    console.log('App listen on 8080') ; 
+app.listen(PORT,function(){
+    console.log(`App listen on ${PORT}`) ; 
 })
