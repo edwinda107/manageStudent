@@ -1,0 +1,52 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  title Quản lí học sinh
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+body
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+      //a.navbar-brand Welcome, admin !
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item.active
+            a.nav-link(href='/')
+              | Home 
+              span.sr-only
+        //form.form-inline.my-2.my-lg-0
+          input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
+          button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+    div(style ='padding-left :40px ; padding-top : 40px')
+        form(action = '/postEdit/' + id, method = 'POST')
+          .form-group
+              label Họ và tên
+              input#exampleInputEmail1.form-control(type='text', placeholder='Nhập họ và tên' name ='name' value = `${temp.name}`, required)
+          .form-group
+              label Lớp
+              input#exampleInputEmail1.form-control(type='text', placeholder='Nhập lớp' name ='classs' value = `${temp.classs}`, required)
+  
+          .form-group
+              label Điểm toán
+              input#exampleInputEmail1.form-control(type='number', placeholder='[0;10]' name ='mathScore' min='0' max='10' value = `${temp.mathScore}`, required)
+
+          .form-group
+              label Điểm văn
+              input#exampleInputEmail1.form-control(type='number', placeholder='[0;10]' name = 'litScore' min='0' max='10' value = `${temp.litScore}`, required)
+          //.form-group
+              label(for='exampleInputPassword1') Diem Van
+              input#exampleInputPassword1.form-control(type='password', placeholder='Password')
+          //.form-group.form-check
+              input#exampleCheck1.form-check-input(type='checkbox')
+              label.form-check-label(for='exampleCheck1') Check me out
+          button.btn.btn-primary(type='submit') Chỉnh sửa !
+   
+    footer.page-footer.font-small.blue
+      .footer-copyright.text-center.py-3
+        | Bản quyền thuộc về mèo péo ngok nghek
+        a(href='https://www.facebook.com/Zodiaxc')  Địa chỉ Facebook 
+      script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+      script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1', crossorigin='anonymous')
+      script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM', crossorigin='anonymous')

@@ -1,0 +1,11 @@
+.butt{
+    padding : 50px 50px 50px 50px
+}
+.divIndex {
+    Display : flex ;Flex-direction : row ;
+    Justify-content : center ;
+    Align-items : flex-end ;
+    margin-top :10px ;
+    margin-bottom :10px ; 
+    padding : 10px 10px 10px 10px;  
+}
