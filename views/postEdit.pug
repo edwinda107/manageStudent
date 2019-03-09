@@ -17,9 +17,6 @@ body( style ='background: rgb(201, 201, 201);')
             a.nav-link(href='/')
               | Home 
               span.sr-only
-        //form.form-inline.my-2.my-lg-0
-          input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
-          button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
     div(style ='padding-left :40px ; padding-top : 40px ; padding: auto ;margin-right : 800px')
         form(action = '/postEdit/' + id, method = 'POST')
           .form-group
@@ -39,12 +36,6 @@ body( style ='background: rgb(201, 201, 201);')
           .form-group
               label Điểm anh
               input#exampleInputEmail1.form-control(type='number', step = '0.1' placeholder='[0;10]' name = 'engScore' min='0' max='10' value = `${temp.engScore}`, required)
-          //.form-group
-              label(for='exampleInputPassword1') Diem Van
-              input#exampleInputPassword1.form-control(type='password', placeholder='Password')
-          //.form-group.form-check
-              input#exampleCheck1.form-check-input(type='checkbox')
-              label.form-check-label(for='exampleCheck1') Check me out
           button.btn.btn-primary(type='submit') Chỉnh sửa !
    
     footer.page-footer.font-small.blue

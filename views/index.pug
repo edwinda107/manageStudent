@@ -9,7 +9,6 @@ head
   link(rel='icon' href ='https://js2.pngtree.com/v3/images/home/paradrop.png')
 body
     nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-      //a.navbar-brand Welcome, admin !
       button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
         span.navbar-toggler-icon
       #navbarSupportedContent.collapse.navbar-collapse
@@ -18,9 +17,6 @@ body
             a.nav-link(href='/')
               | Home 
               span.sr-only
-        //form.form-inline.my-2.my-lg-0
-          input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
-          button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
     div(class ='divIndex')
         form(action ='/reg' method ='get')
             button(type="submit" class="btn btn-outline-secondary butt") Thêm học sinh mới
@@ -30,8 +26,6 @@ body
     div(class='divIndex')
         form(action ='/editt' method = 'get')
           button(type="submit" class="btn btn-outline-success butt" ) Chỉnh dữ liệu của hs
-    //div(class = 'divIndex')
-        button(type="button" class="btn btn-outline-info" style='padding : 30px 30px 30px 30px') Show data
     footer.page-footer.font-small.blue
     .footer-copyright.text-center.py-3
       | Bản quyền thuộc về mèo péo ngok nghek

@@ -20,8 +20,9 @@ app.set('view engine','pug') ;
 app.use(express.static('public')) ; 
 app.use(bodyParser.json()) ; 
 app.use(bodyParser.urlencoded({ extended: true })) ;
+
+
 app.get('/',function(req,res){
-    //if (err) throw err ; 
     res.render('index.pug') ; 
 });
 app.get('/reg',function(req,res){
@@ -37,7 +38,6 @@ app.post('/postReg',function(req,res){
     let litScore = req.body.litScore ; 
     let engScore = req.body.engScore ; 
     let ave = parseFloat((parseInt(mathScore) + parseInt(litScore) + parseInt(engScore))/3).toFixed(1) ; 
-    console.log(ave) ; 
     let pos = user.length + 1 ;
     let temp = {
         name ,
@@ -77,9 +77,8 @@ app.post('/postEdit/:id',function(req,res){
     let mathScore = req.body.mathScore ; 
     let litScore = req.body.litScore ; 
     let engScore = req.body.engScore ; 
-    let ave = Math.round((parseInt(mathScore) + parseInt(litScore) + parseInt(engScore))/3,2).toString()  ; 
-    let pos = user.length + 1 ;
-    //console.log(name) ; 
+    let ave = parseFloat((parseInt(mathScore) + parseInt(litScore) + parseInt(engScore))/3).toFixed(1)  ; 
+    let pos = user[id].pos ;
     let temp = {
         name ,
         classs , 
@@ -90,11 +89,8 @@ app.post('/postEdit/:id',function(req,res){
         ave , 
         nhanPham : controller.nhanPham(ave)  
     }
-    //console.log(temp) ; 
     user[id] = temp ; 
-    
     res.redirect('/edit') ; 
-    
 });
 app.listen(PORT,function(){
     console.log(`App listen on ${PORT}`) ; 
