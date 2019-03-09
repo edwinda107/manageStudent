@@ -2,13 +2,17 @@ const express = require('express') ;
 const app = express() ; 
 const bodyParser = require('body-parser') ; 
 const events = require('events') ; 
+const controller = require('./controller') ; 
 const PORT = 80 ; 
 var user = [{
-    name : 'Quốc Hùng' ,
-    classs : '11 Tin' ,
-    mathScore : 0 ,
-    litScore : 10,
-    pos : 1
+    name : 'Quốc Hùng',
+    classs : '11 Tin' , 
+    mathScore : '2' ,
+    litScore : '3',
+    engScore : '3',
+    pos : 1,
+    ave : controller.ave([2,3,3]), 
+    nhanPham : controller.nhanPham(controller.ave([2,3,3])) 
 }]  ; 
 
 app.set('views' , './views') ;
@@ -31,16 +35,20 @@ app.post('/postReg',function(req,res){
     let classs = req.body.classs ; 
     let mathScore = req.body.mathScore ; 
     let litScore = req.body.litScore ; 
+    let engScore = req.body.engScore ; 
+    let ave = parseFloat((parseInt(mathScore) + parseInt(litScore) + parseInt(engScore))/3).toFixed(1) ; 
+    console.log(ave) ; 
     let pos = user.length + 1 ;
-    //console.log(name) ; 
     let temp = {
-        name : name,
-        classs : classs, 
-        mathScore : mathScore,
-        litScore : litScore ,
-        pos : pos
+        name ,
+        classs , 
+        mathScore ,
+        litScore ,
+        engScore ,
+        pos ,
+        ave , 
+        nhanPham : controller.nhanPham(ave) 
     }
-    //console.log(temp) ; 
     user.push(temp) ; 
     res.redirect('/regSuccess') ; 
     
@@ -57,7 +65,6 @@ app.get('/editt',function(req,res){
 })
 app.get('/edit/:id',function(req,res){
     const lol  = user[req.params.id] ;
-    console.log(lol) ; 
     res.render('postEdit',{
         id : req.params.id ,
         temp : lol
@@ -69,14 +76,19 @@ app.post('/postEdit/:id',function(req,res){
     let classs = req.body.classs ; 
     let mathScore = req.body.mathScore ; 
     let litScore = req.body.litScore ; 
+    let engScore = req.body.engScore ; 
+    let ave = Math.round((parseInt(mathScore) + parseInt(litScore) + parseInt(engScore))/3,2).toString()  ; 
     let pos = user.length + 1 ;
     //console.log(name) ; 
     let temp = {
-        name : name,
-        classs : classs, 
-        mathScore : mathScore,
-        litScore : litScore ,
-        pos : pos
+        name ,
+        classs , 
+        mathScore ,
+        litScore ,
+        engScore ,
+        pos ,
+        ave , 
+        nhanPham : controller.nhanPham(ave)  
     }
     //console.log(temp) ; 
     user[id] = temp ; 

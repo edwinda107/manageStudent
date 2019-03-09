@@ -41,13 +41,19 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
               th Lớp
               th Điểm toán 
               th Điểm văn
+              th Điểm anh văn
+              th Điểm trung bình
+              th Nhân phẩm
           tfoot
             tr
               th Mã số
               th Họ và tên học sinh
               th Lớp
-              th Điểm toán
+              th Điểm toán 
               th Điểm văn
+              th Điểm anh văn
+              th Điểm trung bình
+              th Nhân phẩm
           tbody
             each val in user
                 tr
@@ -56,6 +62,9 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
                     td= val.classs
                     td= val.mathScore
                     td= val.litScore
+                    td= val.engScore 
+                    td= val.ave 
+                    td= val.nhanPham 
     .card-footer.small.text-muted 
       | Meow 
 footer.page-footer.font-small.blue
