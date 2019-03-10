@@ -37,7 +37,7 @@ app.post('/postReg',function(req,res){
     let mathScore = req.body.mathScore ; 
     let litScore = req.body.litScore ; 
     let engScore = req.body.engScore ; 
-    let ave = parseFloat((parseInt(mathScore) + parseInt(litScore) + parseInt(engScore))/3).toFixed(1) ; 
+    let ave = controller.ave([parseInt(mathScore),parseInt(litScore),parseInt(engScore)]) ; 
     let pos = user.length + 1 ;
     let temp = {
         name ,
@@ -77,7 +77,7 @@ app.post('/postEdit/:id',function(req,res){
     let mathScore = req.body.mathScore ; 
     let litScore = req.body.litScore ; 
     let engScore = req.body.engScore ; 
-    let ave = parseFloat((parseInt(mathScore) + parseInt(litScore) + parseInt(engScore))/3).toFixed(1)  ; 
+    let ave = controller.ave([parseInt(mathScore),parseInt(litScore),parseInt(engScore)]) ;
     let pos = user[id].pos ;
     let temp = {
         name ,
@@ -93,5 +93,5 @@ app.post('/postEdit/:id',function(req,res){
     res.redirect('/edit') ; 
 });
 app.listen(PORT,function(){
-    console.log(`App listen on ${PORT}`) ; 
+    console.log(`App listen on port ${PORT}`) ; 
 })
