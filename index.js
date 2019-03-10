@@ -37,7 +37,7 @@ app.post('/postReg',function(req,res){
     let mathScore = req.body.mathScore ; 
     let litScore = req.body.litScore ; 
     let engScore = req.body.engScore ; 
-    let ave = controller.ave([parseInt(mathScore),parseInt(litScore),parseInt(engScore)]) ; 
+    let ave = controller.ave([parseFloat(mathScore),parseFloat(litScore),parseFloat(engScore)]) ; 
     let pos = user.length + 1 ;
     let temp = {
         name ,
@@ -77,7 +77,7 @@ app.post('/postEdit/:id',function(req,res){
     let mathScore = req.body.mathScore ; 
     let litScore = req.body.litScore ; 
     let engScore = req.body.engScore ; 
-    let ave = controller.ave([parseInt(mathScore),parseInt(litScore),parseInt(engScore)]) ;
+    let ave = controller.ave([parseFloat(mathScore),parseFloat(litScore),parseFloat(engScore)]) ;
     let pos = user[id].pos ;
     let temp = {
         name ,
